@@ -1033,9 +1033,20 @@ export const UserContextProvider = ({children}) => {
                dmRoomName: newDmRoom.dmRoomName
             }
             try {
-               await updateDoc(docRef, {
-                  dmRooms: dmRoomList
-               })
+               if (index !== -1)
+                  await updateDoc(docRef, {
+                     dmRooms: dmRoomList
+                  })
+               else
+                  await updateDoc(docRef, {
+                     dmRooms: arrayUnion(
+                        {
+                           dmRoomID: newDmRoom.dmRoomID,
+                           dmRoomIcon: newDmRoom.dmRoomIcon,
+                           dmRoomName: newDmRoom.dmRoomName
+                        }
+                     )
+                  })
             } catch(err) {
                console.log('AddToDmRoom: ', err)
             }
@@ -1044,11 +1055,11 @@ export const UserContextProvider = ({children}) => {
       
       const docRef = doc(db, 'dmRooms', newDmRoom.dmRoomID)
       try {
-         await updateDoc(docRef, {
-            dmRoomName: newDmRoom.dmRoomName,
-            participantIDs: newDmRoom.participantIDs,
-            participants: newDmRoom.participants,
-         })
+         // await updateDoc(docRef, {
+         //    dmRoomName: newDmRoom.dmRoomName,
+         //    participantIDs: newDmRoom.participantIDs,
+         //    participants: newDmRoom.participants,
+         // })
       } catch(err) {
          console.log('AddToDmRoom: ', err)
       }
