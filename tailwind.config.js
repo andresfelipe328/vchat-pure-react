@@ -28,13 +28,3 @@ module.exports = {
   },
   plugins: [require('tw-elements/dist/plugin')],
 }
-
-
-/* Original Color Scheme
-  'mainBg': '#FFE9CF',
-  'subBg': '#F3D4B1',
-  'dark_1': '#2F4858',
-  'dark_2': '#446970',
-  'light_1': '#504538',
-  'light_2': '#7B9D78'
-*/
