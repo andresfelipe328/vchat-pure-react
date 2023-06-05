@@ -9,7 +9,7 @@ import RoomMgmt from './RoomMgmt'
 import SideBarMenu from './SideBarMenu'
 
 const Sidebar = ({showCreateRoom, setShowCreateRoom}) => {
-   const {userAuth} = useUserContext()
+   const {user} = useUserContext()
 
    // Animation
    const headerBox = useRef(null)
@@ -33,7 +33,7 @@ const Sidebar = ({showCreateRoom, setShowCreateRoom}) => {
             </Link>
          </div>
 
-         {userAuth && <RoomMgmt/>}
+         {(user.displayName && user.photoURL) && <RoomMgmt/>}
 
          <SideBarMenu
             showCreateRoom={showCreateRoom}

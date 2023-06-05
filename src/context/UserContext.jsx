@@ -545,7 +545,6 @@ export const UserContextProvider = ({children}) => {
             } catch(err) {
                console.log('CompleteRoomRequest: ', err) 
             }
-            await updateDoc
          }
          else {
             const docRef = doc(db, 'users', user.displayName)
@@ -572,6 +571,7 @@ export const UserContextProvider = ({children}) => {
             const participants = roomSnap.data().participants
             const participant = participants.find(ptc => ptc.participantID === auth.currentUser.uid)
             delete participant.status
+            console.log(participants)
 
             await updateDoc(roomRef, {
                participants: participants
@@ -653,7 +653,7 @@ export const UserContextProvider = ({children}) => {
             roomID: room.roomID,
             roomName: room.roomName,
             roomIcon: room.roomIcon,
-            userID: auth.currentUser.uid,
+            creatorID: auth.currentUser.uid,
             mainMiniRoom: textRoomID,
             mainRooms: [
                {
@@ -1060,17 +1060,17 @@ export const UserContextProvider = ({children}) => {
 
    // Send Message ====================================================================================================
    const sendMessage = async (type, id, message, subID=null) => {
-      const docRef = type === '01' 
-         ?
-            doc(db, `dmRooms/${id}/messages`, message.messageID)
-         :
-            doc(db, `rooms/${id}/miniRooms/${subID}/messages`, message.messageID)
-
       let msgFileUrl = null
       if (message.messageFile)
          msgFileUrl = await storeMsgFile(type, id, message, subID)
 
       try {
+         const docRef = type === '01' 
+         ?
+            doc(db, `dmRooms/${id}/messages`, message.messageID)
+         :
+            doc(db, `rooms/${id}/miniRooms/${subID}/messages`, message.messageID)
+         
          await setDoc(docRef, {
             msgID: message.messageID,
             author: message.messageAuthor,

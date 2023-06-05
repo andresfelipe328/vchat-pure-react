@@ -23,7 +23,8 @@ const AddFriendForm = ({toggleShow, username, setUsername}) => {
 
    return (
       <form className='flex flex-col gap-2 mt-2' onSubmit={handleAddFriend} autoComplete='off'>
-         <input 
+         <input
+            id='friend_tobe_username'
             type="text" 
             placeholder='username' 
             className='bg-mainBg'

@@ -53,7 +53,7 @@ const RoomMenu = ({data, showNewMR, setShowNewMR}) => {
 
          <MDBCollapse show={show} className='absolute top-9 left-2 w-max rounded-md shadow-popup z-30'>
             <div className='p-4 bg-subBg rounded-md flex flex-col gap-1'>
-               {user.uid === data?.userID && 
+               {user.uid === data?.creatorID && 
                   <>   
                      <button className='flex items-center gap-3 w-full rounded-md p-1 hover:bg-mainBg transition-all duration-200 ease-in-out'>
                         <FaUserPlus className='text-sm text-light_1/[.75]'/>
@@ -65,7 +65,7 @@ const RoomMenu = ({data, showNewMR, setShowNewMR}) => {
                      </button>
                   </>
                }
-               {user.uid === data?.userID 
+               {user.uid === data?.creatorID
                   ?
                      <button onClick={()=>handleDeleteRoom('owner')} className='group flex items-center gap-3 w-full rounded-md p-1 hover:bg-red-700 transition-all duration-200 ease-in-out'>
                         <FaTrash className='text-sm text-red-700 group-hover:text-mainBg'/>

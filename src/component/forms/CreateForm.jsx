@@ -73,7 +73,7 @@ const CreateForm = () => {
                   <FaUserAlt className='text-6xl text-light_2'/>
             }
 
-            <label htmlFor="acc_imgInput" className='absolute cursor-pointer bottom-0 -right-[.95rem] w-[2.75rem] h-[2.75rem] rounded-full flex items-center justify-center border-4 border-light_1 bg-light_2'>
+            <label htmlFor="acc_imgInput_profile" className='absolute cursor-pointer bottom-0 -right-[.95rem] w-[2.75rem] h-[2.75rem] rounded-full flex items-center justify-center border-4 border-light_1 bg-light_2'>
                <FaCameraRetro className='text-xl text-light_1'/>
             </label>
          </div>
@@ -82,14 +82,15 @@ const CreateForm = () => {
             onClick={handleAddFile}
             type='file'
             style={{display: 'none'}}
-            id ='acc_imgInput'
+            id ='acc_imgInput_profile'
             required
          />
 
          <label htmlFor="username">Username:</label>
          <input 
             type="text" 
-            name='username' 
+            name='username'
+            id='username'
             placeholder='username'
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -99,7 +100,8 @@ const CreateForm = () => {
          {err ?
                <small className='bg-red-700 rounded-md p-1 text-center w-full text-mainBg'>{err}</small>
             :
-               <button className='flex items-center justify-between bg-dark_2 text-mainBg rounded-md p-2 mt-5 mb-4 w-3/5 m-auto hover:bg-dark_1 transition-all duration-200 ease-out'>
+               <button
+               className='flex items-center justify-between bg-dark_2 text-mainBg rounded-md p-2 mt-5 mb-4 w-3/5 m-auto hover:bg-dark_1 transition-all duration-200 ease-out'>
                   <small>Create</small>
                   <FaUserCheck className='text-lg'/>
                </button>

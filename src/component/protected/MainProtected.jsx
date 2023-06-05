@@ -22,7 +22,7 @@ const MainProtected = () => {
    }, [])
 
    return (
-      <article className='flex gap-1 w-full h-full' ref={contentBox}>
+      <div className='flex flex-col-reverse md:flex-row gap-1 w-full h-full' ref={contentBox}>
          <MngmtLayout>
             <Routes>
                <Route path='' element={<DirectMsgMngmt/>}/>
@@ -38,7 +38,7 @@ const MainProtected = () => {
                <Route path='room/:id/:subID' element={<MainRoomChat/>}/>
             </Routes>
          </ContentLayout>
-      </article>
+      </div>
    )
 }
 

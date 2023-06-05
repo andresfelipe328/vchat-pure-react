@@ -33,7 +33,7 @@ const LoginForm = () => {
          <label htmlFor="email">Email:</label>
          <input 
             type="email" 
-            name='email' 
+            id='email' 
             placeholder='example@email.com'
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -42,7 +42,7 @@ const LoginForm = () => {
          <label htmlFor="password">Password:</label>
          <input 
             type="password"
-            name='password' 
+            id='password' 
             placeholder='&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'
             onChange={(e) => setPwd(e.target.value)}
             required

@@ -11,7 +11,7 @@ const App = () => {
   const {userAuth, user} = useUserContext()
   const [showCreateRoom, setShowCreateRoom] = useState(false)
   return (
-    <main className='relative flex items-center justify-center gap-1 h-screen min-h-[660px] w-full p-2'>
+    <main className='relative flex items-center justify-center gap-1 h-screen min-h-[660px] w-full min-w-[390px] p-2'>
       <Sidebar
         showCreateRoom={showCreateRoom}
         setShowCreateRoom={setShowCreateRoom}

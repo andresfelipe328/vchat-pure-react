@@ -71,7 +71,7 @@ const CreateRoomForm = ({show, setShow}) => {
                   <TiPlus className='text-6xl text-light_2'/>
             }
 
-            <label htmlFor="acc_imgInput" className='absolute cursor-pointer bottom-0 -right-[.95rem] w-[2.75rem] h-[2.75rem] rounded-full flex items-center justify-center border-4 border-light_1 bg-light_2'>
+            <label htmlFor="acc_imgInput_room" className='absolute cursor-pointer bottom-0 -right-[.95rem] w-[2.75rem] h-[2.75rem] rounded-full flex items-center justify-center border-4 border-light_1 bg-light_2'>
                <FaCameraRetro className='text-xl text-light_1'/>
             </label>
          </div>
@@ -80,14 +80,14 @@ const CreateRoomForm = ({show, setShow}) => {
             onClick={handleAddFile}
             type='file'
             style={{display: 'none'}}
-            id ='acc_imgInput'
+            id ='acc_imgInput_room'
             required
          />
 
-         <label htmlFor="username">Room Name:</label>
+         <label htmlFor="roomname">Room Name:</label>
          <input 
             type="text" 
-            name='username' 
+            id='roomname' 
             placeholder='room name'
             value={roomName}
             onChange={(e) => setRoomName(e.target.value)}

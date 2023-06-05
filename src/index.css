@@ -67,7 +67,7 @@
     @apply shadow-input;
     @apply hover:shadow-lg;
     @apply focus:shadow-lg;
-    transition: all;
+    @apply transition-all;
     @apply duration-200;
     @apply ease-out;
   }
@@ -80,6 +80,7 @@
   }
   ::-webkit-scrollbar {
     @apply w-0;
+    @apply h-0;
   }
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
